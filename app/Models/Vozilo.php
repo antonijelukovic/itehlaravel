@@ -11,6 +11,14 @@ class Vozilo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'registarski_broj',
+        'godiste',
+        'kilometraza',
+        'klijent_id',
+        'servis_id'
+    ];
+
     public function servis()
     {
         return $this->belongsTo(Servis::class);

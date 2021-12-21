@@ -10,6 +10,14 @@ class Servis extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'naziv',
+        'grad',
+        'adresa',
+        'broj_zaposlenih',
+        'website'
+    ];
+
     public function vozila()
     {
         return $this->hasMany(Vozilo::class);
