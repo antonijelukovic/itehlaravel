@@ -11,9 +11,9 @@ class Vozilo extends Model
 {
     use HasFactory;
 
-    public function servisi()
+    public function servis()
     {
-        return $this->hasMany(Servis::class);
+        return $this->belongsTo(Servis::class);
     }
 
     public function klijent()
