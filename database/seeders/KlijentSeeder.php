@@ -14,6 +14,6 @@ class KlijentSeeder extends Seeder
      */
     public function run()
     {
-        Klijent::factory()->count(25)->create();
+        Klijent::factory()->count(18)->create();
     }
 }
