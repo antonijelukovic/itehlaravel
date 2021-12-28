@@ -31,11 +31,6 @@ class AuthenticationController extends Controller
 
         $token = $user->createToken('reg_token_')->plainTextToken;
 
-        $response = [
-            'user' => $user,
-            'token' => $token,
-        ];
-
         return response()->json([
             'poruka' => 'Uspešno ste se registrovali!',
             'user' => $user,

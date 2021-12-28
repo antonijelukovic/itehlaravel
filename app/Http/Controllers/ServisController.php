@@ -47,6 +47,7 @@ class ServisController extends Controller
      * @param  \App\Models\Servis  $servis
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         $servis = Servis::find($id);
@@ -99,7 +100,7 @@ class ServisController extends Controller
             $servis->update();
 
             return response()->json([
-                'poruka' => 'Servis je izmenjen!',
+                'poruka' => 'Servis je uspešno izmenjen!',
                 'servis' => new ServisResource($servis)
             ]);
         } else {
@@ -117,6 +118,6 @@ class ServisController extends Controller
     {
         $servis = Servis::find($id);
         $servis->delete();
-        return response()->json(['poruka' => 'Servis je obrisan!']);
+        return response()->json(['poruka' => 'Servis je uspešno obrisan!']);
     }
 }

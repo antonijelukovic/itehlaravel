@@ -85,6 +85,6 @@ class VoziloController extends Controller
     {
         $vozilo = Vozilo::find($id);
         $vozilo->delete();
-        return response()->json(['poruka' => 'Vozilo je obrisano!']);
+        return response()->json(['poruka' => 'Vozilo je uspešno obrisano!']);
     }
 }
