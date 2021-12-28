@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServisController;
+use App\Http\Controllers\VoziloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::resource('servis', ServisController::class)->only('index', 'show', 'update', 'destroy');
+    Route::resource('vozilo', VoziloController::class)->only('index', 'show', 'destroy');
+    Route::post('/logout', [AuthenticationController::class, 'logout']);
 });
